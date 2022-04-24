@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Kjente feil/mangler/tolkninger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- API-et returnerer feil data. Slik jeg skjønner det er dette grunnet GitHubs tidsbegrensninger: https://stackoverflow.com/questions/62885108/github-api-incomplete-results-for-a-simple-search
 
-## Available Scripts
+- TypeScript burde blitt brukt, men på en kjapp prototype tenker jeg at standard JS går greit.
 
-In the project directory, you can run:
+- GraphQL har jeg ikke erfaring med, men noe slikt kunne kanskje blitt brukt for å spesifisere dataformatet vi forventer å få fra GitHub?
 
-### `npm start`
+- Jeg skulle gjerne hatt statiske bredder på hver kolonne i tabellen. Dette kan sikkert tas hånd om av et tabellbibliotek.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Beskrivelsesteksten for hvert repo skjules delvis, med hele teksten synlig på hover via title-attributtet. Dette bør kanskje ikke gjøres, men jeg ønsket å kunne bruke navigasjonsknappene på bunnen uten at de flyttet seg.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Antallet repo-er pr. side burde heller være en state-variabel, og antallet sider kunne vært `Math.ceil(topRepos.length / reposPerPage)` hvis søket skulle returnert noe annet enn 100.
 
-### `npm test`
+- Loading-indikatoren burde vært animert.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- tableHeaders burde ikke vært en hardkodet string-array, men heller hentet fra dataene ved hjelp av `Object.keys`, og kanskje mappet til noe mer leselig.- Dette med å ha dobbelt opp med pagineringsknapper er kanskje ikke helt standard. Det ble gjort for å ha dem lettere synlig, uavhengig av hvor i tabellen du er, men en bedre løsning hadde kanskje vært å hatt dem som en kolonne, helt ute til siden.
 
-### `npm run build`
+- `Array.slice` er greit i prototypesammenheng, men `Array.reduce` ville kunne gitt mer fleksibilitet med tanke på logikk og kodegjenbruk.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Overgangen fra en side til en annen er øyeblikkelig. Folk blir kanskje litt satt ut av det? Selv tror jeg kanskje at en animasjon/overgang på 500ms kunne ha gjort opplevelsen bedre.
